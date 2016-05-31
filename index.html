@@ -1,0 +1,663 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <script>
+        var domainname = window.location.host;
+        document.title = domainname;
+        var domainwithoutperiod = domainname.replace(/\./g, ' ');
+        localStorage.setItem('domain', domainwithoutperiod);
+        var host = domainname;if ((host == window.location.host) && (window.location.protocol != "https:")) window.location.protocol = "https";
+
+    </script>
+    <title>Fastur</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <!--[if lte IE 8]><script src="https://fastur.ca/assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="https://fastur.ca/assets/css/main.css" />
+    <script src="https://fastur.ca/assets/js/jquery.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+    <script src="https://fastur.ca/assets/js/library.js"></script>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <!--[if lte IE 9]><link rel="stylesheet" href="https://fastur.ca/assets/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="https://fastur.ca/assets/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <br>
+    <div id="wrapper">
+        <!-- Header -->
+        <header id="header">
+            <nav>
+                <ul>
+                    <li><a href="#menu">Menu</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- Intro -->
+        <section id="intro" style="display:none" class="wrapper featured style1 assist">
+            <div class="inner">
+                <span class="image"><img src='https://fastur.ca/images/assist.png'></span>
+                <div class="content">
+                    <header>
+
+                        <div class="title">
+                            <h1>I'm Assist!</h1></div>
+                        <p>
+                            <div class="body">I help organisations of all sizes build web apps.</div><br />
+                            <br />
+                        </p>
+                    </header>
+                    <footer>
+
+                        <ul class="actions">
+                            <li><a href="#" class="assistbutton button big">open dashboard</a></li>
+                        </ul>
+                    </footer>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <section style="display:none" class="forms wrapper style1">
+            <div class="inner">
+                <div style="display:none" class="manualdata">
+                    <h2>add data</h2>
+                    <div class="row uniform">
+                        <div class="6u 12u$(xsmall)">
+                            <input type="text" name="demo-name" id="demo-name" value="" class="key" placeholder="key">
+                        </div>
+                        <div class="6u$ 12u$(xsmall)">
+                            <input type="email" name="demo-email" id="demo-email" value="" class="value" placeholder="value">
+                        </div>
+                        <div class="12u$">
+                            <div class=" base select-wrapper">
+                                <select name="demo-category" id="demo-category">
+														<option value="">- base -</option>
+														<option value="1">guests</option>
+														<option value="1">users</option>
+														<option value="1">organisations</option>
+														<option value="1">emails</option>
+														<option value="1">data</option>
+													</select>
+                            </div>
+                        </div>
+                        <div class="12u$">
+                            <ul class="actions">
+                                <li><a href="#" class="special">add data</a></li>
+                                <li><input type="reset" value="Reset"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display:none" class="manualemail">
+                    <h2>send an email</h2>
+
+                    <div class="row uniform">
+                        <div class="6u 12u$(xsmall)">
+                            <input type="text" name="demo-name" id="demo-name" value="" class="toname" placeholder="Name">
+                        </div>
+                        <div class="6u$ 12u$(xsmall)">
+                            <input type="email" name="demo-email" id="demo-email" value="" class="toemail" placeholder="To Email">
+                        </div>
+                        <div class="6u 12u$(xsmall)">
+                            <input type="text" name="demo-name" id="demo-name" value="" class="subject" placeholder="subject">
+                        </div>
+                        <div class="6u$ 12u$(xsmall)">
+                            <input type="email" name="demo-email" id="demo-email" value="" class="fromemail" placeholder="From Email">
+                        </div>
+
+                        <div class="12u$">
+                            <textarea name="demo-message" id="formmessage" placeholder="Enter your message" class="html" rows="6"></textarea>
+                        </div>
+                        <div class="12u$">
+                            <ul class="actions">
+                                <li><a href="#">send email</a></li>
+                                <li><input type="reset" value="Reset"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <div id="main">
+            <div class="inner">
+
+                <section id="tiles" class="tiles"><br>
+
+                </section>
+
+                <section id="footer" class="wrapper split style2">
+                    <div class="copyright">
+                        <ul class="icons">
+                            <li><a href="https://twitter.com/assistfastur" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                            <li><a href="https://medium.com/@assist" class="icon fa-medium"><span class="label">Instagram</span></a></li>
+                            <li><a href="https://github.com/Fastur/fastur.github.io/" class="icon fa-github"><span class="label">GitHub</span></a></li>
+                        </ul>
+                        <p>☺ Fastur Inc. <a href="http://www.fastur.ca/terms">Terms</p>
+            </div>
+        </section>
+        
+            </div>
+        </div>
+        </div>
+                
+        <!-- Menu -->
+        <nav style="z-index: +999;" id="menu">
+            <h2>Menu</h2>
+            <ul class="links">
+                <li><a class="guidedtour" href="#">guided tour</a></li>
+                            <li><a href="#">whats new</a></li>
+                            <li><a href="#">questions</a></a>
+                            </li>
+                            <li><a href="#">search</a></li>
+                            <li><a href="#">directory</a></li>
+                            </ul>
+                            <ul class="actions vertical">
+                                <li><a href="#" onclick="" class="getstarted button fit special">Get Started</a></li>
+                                <li><a href="#" class="login button fit">Log In</a></li>
+                            </ul>
+                            </nav>
+                    </div>
+                    <iframe id='iframeone' style='position:fixed; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:-10;'></iframe>
+                    <!-- Scripts -->
+                    <script src="https://fastur.ca/assets/js/skel.min.js"></script>
+                    <script src="https://fastur.ca/assets/js/util.js"></script>
+                    <!--[if lte IE 8]><script src="https://fastur.ca/assets/js/ie/respond.min.js"></script><![endif]-->
+                    <script src="https://fastur.ca/assets/js/main.js"></script>
+                    <script>
+                        function connect() {
+                         var domain = localStorage.getItem('domain');
+                            if( domain.indexOf('fastur') >= 0){
+                            	console.log('im on fastur.ca');
+                            	 var headline = localStorage.getItem('headline');
+                            $("#pageheadline").text(headline);
+                            console.log('connected');
+                            if (localStorage.getItem("name") === null) {
+                                isguest();
+                            } else {
+                                isloggedin();
+                            };
+                            	}else{
+                            	console.log('im on ' + domain);
+                            	 loadorganisation();
+                            	};
+                        };
+                        
+                        function loadorganisation() {
+                        	    var domain = localStorage.getItem('domain');
+                        	    var name = domain;
+                            console.log("loadorganisation was called");
+                            
+                        	    var user = {
+                                domain: domain,
+                            };
+
+                            var db = new Firebase("https://01234567890.firebaseio.com/");
+                            db.child('accounts').child(name).once('value', function(snapshot) {
+                                if (snapshot.exists()) {
+                                    snapshot.ref().update(user);
+                                } else {
+                                    var payload = {};
+                                    payload[name] = user;
+                                    snapshot.ref().parent().update(payload);
+                                }
+                            });
+                            
+                     
+                            var firebaseRef = new Firebase("https://01234567890.firebaseio.com/accounts/" + domain);
+                            firebaseRef.once("value", function(snapshot) {
+                                snapshot.forEach(function(childSnapshot) {
+                                    var childData = childSnapshot.val();
+                                    var key = childData.key;
+                                    var value = childData.value;
+                                    $("#tiles").append("<article id='" + key + "' class='" + value + "' onClick='tileclick(this.id);' class='style1'> <span class='image'> <img src='https://source.unsplash.com/random'> </span> <a href='#'><h2>" + key + "</h2><div class='content '> <p>" + value + "</p> </div> </a> </article>");
+                                });
+                            });
+                        };
+
+                        function opendashboard() {
+                            console.log("opendashboard was called");
+                            var headline = $(".headline").val();
+                            var name = $(".name").val();
+                            var email = $(".email").val();
+                            localStorage.setItem('name', name);
+                            localStorage.setItem('email', email);
+                            localStorage.setItem('headline', headline);
+
+                            var user = {
+                                email: email,
+                                name: name,
+                                headline: headline
+                            };
+
+                            var db = new Firebase("https://01234567890.firebaseio.com/");
+                            db.child('accounts').child(name).once('value', function(snapshot) {
+                                if (snapshot.exists()) {
+                                    snapshot.ref().update(user);
+                                } else {
+                                    var payload = {};
+                                    payload[name] = user;
+                                    snapshot.ref().parent().update(payload);
+                                }
+                            });
+                            var ref = new Firebase("https://01234567890.firebaseio.com/accounts/" + name);
+                            ref.on("value", function(snapshot) {
+                                var snap = snapshot.val();
+                                console.log("the snapshot is: " + snap);
+                                //$("head").append(newPost.code);
+                            });
+                            location.reload();
+                        };
+
+                        function isguest() {
+                            console.log('im a guest');
+                            newproject();
+                        };
+
+                        function isloggedin() {
+                            var name = localStorage.getItem('name');
+                            var ref = new Firebase("https://01234567890.firebaseio.com/users/");
+                            ref.once("value", function(snapshot) {
+                                snapshot.forEach(function(childSnapshot) {
+                                    var childData = childSnapshot.val();
+                                    var key = childData.key;
+                                    var value = childData.value;
+                                    $("#tiles").append("<article id='" + key + "' class='" + value + "' onClick='tileclick(this.id);' class='style1'> <span class='image'> <img src='https://source.unsplash.com/random'> </span> <a href='#'><h2>" + key + "</h2><div class='content '> <p>" + value + "</p> </div> </a> </article>");
+                                });
+                            });
+
+                            var firebaseRef = new Firebase("https://01234567890.firebaseio.com/accounts/" + name + "/projects/");
+
+                            firebaseRef.once("value", function(snapshot) {
+                                snapshot.forEach(function(childSnapshot) {
+                                    var childData = childSnapshot.val();
+                                    var key = childData.style;
+                                    var value = childData.style;
+                                    $("#tiles").append("<article id='" + key + "' class='" + value + "' onClick='tileclick(this.id);' class='style1'> <span class='image'> <img src='https://source.unsplash.com/random'> </span> <a href='#'><h2>" + key + "</h2><div class='content '> <p>" + value + "</p> </div> </a> </article>");
+                                });
+                            });
+
+                            $(".name").text(name);
+                            $(".login").text('logout');
+                            $(".getstarted").text('dashboard');
+                            $(".gnameedtour").text('get pro');
+                            //gethappenings();
+                        };
+
+
+                        $('a ').click(function() {
+                            var str = $(this).text();
+                            var function_to_call = str.replace(/\s+/g, '').toLowerCase();
+                            window[function_to_call]();
+                        });
+
+                        function menu() {
+                            console.log('menu was called');
+                        };
+
+                        function guidedtour() {
+                            console.log("guidedtour was called");
+                            $("#iframeone").css("display", "none");
+                            $("#main").css("display", "block");
+
+                            $(".assist").css("display", "block");
+                            $(".assistbutton").text("open dashboard");
+                            $(".title").html("");
+                            $(".body").html("choose a style, add your text and publish your site!");
+                        };
+
+                        function getstarted() {
+
+                            console.log("getstarted was called");
+                            $("#iframeone").css("display", "none");
+                            $(".title").html("");
+                            $(".body").html("<div class='title'><input type='text' name='demo-name' id='demo-name' class='headline' value='' placeholder='What is the headline of your page'></div><br><input type='text' name='demo-name' id='demo-name' value='' class='name' placeholder='What is your name?'><br><input type='text' name='demo-name' id='demo-name' class='email' value='' placeholder='What is your email?'><br>");
+                            $(".assistbutton").text("open dashboard");
+                            $(".assist").css("display", "block");
+                            $(".headline").focus();
+                        };
+
+                        function directory() {
+                            $("#iframeone").css("display", "none");
+                            console.log("directory was called");
+                            cognitive();
+                            getspaces();
+                            gethappenings();
+                        };
+
+                        function whatsnew() {
+                            $(".assist").css("display", "none");
+                            console.log("whatsnew was called");
+                            cognitive();
+                        };
+
+                        function login() {
+                            console.log('login was called ');
+                            $(".title").html("");
+                            $(".body").html("<div class='title'><input type='text' name='demo-name' id='demo-name' value='' class='name' placeholder='Name'></div>");
+                            $(".assistbutton").text("open dashboard");
+                            $(".assist").css("display", "block");
+                            $(".name").focus();
+                        };
+
+                        function search() {
+                            console.log('search was called');
+                            $("#iframeone").css("display", "none");
+                            $(".title").html("");
+                            $(".body").html("<div class='title'><input type='text' name='demo-name' id='query' class='query' value='' placeholder='Search for'></div>");
+                            $(".assistbutton").text("search now");
+                            $(".assist").css("display", "block");
+                            $(".name").focus();
+                        };
+
+                        function searchnow() {
+                            var query = $(".query").val();
+                            console.log(query);
+                            var ref = new Firebase("https://01234567890.firebaseio.com/users/" + query);
+                            ref.on("value", function(snapshot) {
+                                var newPost = snapshot.val();
+                            });
+                        };
+
+                        function questions() {
+                            console.log('questions was called ');
+                            $(".title").html("");
+                            $(".body").html("<div class='title'><input type='text' name='demo-name' id='demo-name' class='ask' value='' placeholder='Question'></div>");
+                            $(".assistbutton").text("ask");
+                            $(".assist").css("display", "block");
+                            $(".name").focus();
+                        };
+
+
+
+                        function preview(valuepassed) {
+                            document.getElementById('iframeone').setAttribute('src', valuepassed);
+                            $("#main").css("display", "none");
+                            $("#assist").css("display", "none");
+                            var iframeDocument = document.getElementById('iframeone').contentDocument;
+                            $("#iframeone").css("display", "block");
+                            iframeDocument.designMode = 'on';
+                            localStorage.setItem('templateurl', valuepassed);
+                            addprojecttoaccount();
+
+                            //turnondesignmode();
+
+                        };
+
+                        function back() {
+                            //turnoffdesignmode();
+                            $(".login").text('log in');
+                            $("#main").css("display", "block");
+                            $("#iframeone").css("display", "none");
+                        };
+
+
+                        function tileclick(obj) {
+                            var function_to_call = obj.replace(/\s+/g, '').toLowerCase();
+                            window[function_to_call]();
+                        };
+
+                        function ask() {
+                            console.log("ask was called");
+                            var name = localStorage.getItem('name');
+                            localStorage.setItem('fromemail', "assist@fastur.ca");
+                            localStorage.setItem('subject', name + "  has a question");
+                            var html = $(".ask").val();
+                        };
+
+                        function logout() {
+                            localStorage.removeItem('name');
+                            location.reload();
+                        };
+
+                        function cognitive() {
+                            var ref = new Firebase("https://01234567890.firebaseio.com/organisations/Change%20Management/");
+                            ref.once("value", function(snapshot) {
+                                snapshot.forEach(function(childSnapshot) {
+                                    var childData = childSnapshot.val();
+                                    var key = childData.key;
+                                    var value = childData.value;
+                                    var url = childData.url;
+                                    $("#tiles").append("<article id='" + key + "' class='" + value + "'  onClick='preview('preview'); ' class='style1'> <span class='image'><img src='https://source.unsplash.com/random'></span> <a ' href='#" + key + "'> <h2>" + key + "</h2> <div class='content'> <p>" + value + "</p> </div> </a> </article>");
+                                });
+                            });
+                        };
+
+                        function email() {
+                            $("#tiles").html("");
+                            var ref = new Firebase("https://01234567890.firebaseio.com/emails/");
+                            ref.once("value", function(snapshot) {
+                                snapshot.forEach(function(childSnapshot) {
+                                    var childData = childSnapshot.val();
+                                    var key = childData.key;
+                                    var value = childData.value;
+                                    $("#tiles").append("<article id='" + key + "' class='" + value + "' onClick='tileclick(this.id);' class='style1'> <span class='image'> <img src='https://source.unsplash.com/random'> </span> <a href='#'><h2>" + key + "</h2><div class='content '> <p>" + value + "</p> </div> </a> </article>");
+                                });
+                            });
+                        };
+
+                        function data() {
+                            $("#tiles").html("");
+                            var ref = new Firebase("https://01234567890.firebaseio.com/data/");
+                            ref.once("value", function(snapshot) {
+                                snapshot.forEach(function(childSnapshot) {
+                                    var childData = childSnapshot.val();
+                                    var key = childData.key;
+                                    var value = childData.value;
+                                    $("#tiles").append("<article id='" + key + "' class='" + value + "' onClick='tileclick(this.id);' class='style1'> <span class='image'> <img src='https://source.unsplash.com/random'> </span> <a href='#'><h2>" + key + "</h2><div class='content '> <p>" + value + "</p> </div> </a> </article>");
+                                });
+                            });
+                        };
+
+
+                        function manualemail() {
+                            console.log("manual email was called");
+                            $(".forms").css("display", "block");
+                            $(".manualemail").css("display", "block");
+                            $(".manualdata").css("display", "none");
+                            $("#footer").css("display", "none");
+                        };
+
+                        function manualdata() {
+                            console.log("manual data was called");
+                            $(".forms").css("display", "block");
+                            $(".manualdata").css("display", "block");
+                            $(".manualemail").css("display", "none");
+                            $("#footer").css("display", "none");
+                        };
+
+                        function finances() {
+                            $(".forms").css("display", "block");
+                            $(".manualdata").css("display", "block");
+                        };
+
+			function leads() {
+                            console.log("leads was called");
+                            $(".forms").css("display", "block");
+                            $(".manualdata").css("display", "block");
+                        };
+                        
+                        function nurture() {
+                            manualemail();
+                            $('#formmessage').val("I wanted to check in and make sure all your questions are answered, and that you're not having any programs with the checkout process.  I'm committed to doing everything I can to help out. Whether you have a question about the products, the designs, or need a recommendation, I'd love to hear from you! Shoot me an email - or feel free to finish checking out your purchases. I'm incredibly passionate about design. I love the products that we make, and I think you will too! I look forward to hearing from you,");
+                        };
+
+                        function books() {
+                            preview("https://www.highlyreco.com");
+                        };
+                        function build() {
+                            preview("https://www.carrd.co");
+                        };
+
+                        function welcome() {
+                            manualemail();
+                            $('#formmessage').val("Hey, I really appreciate your signing, and I'm sure you'll love it when you see how easy it is to get the right things done. We built Samu to help individuals (from managers via freelancers through to students) improve their productivity, and I hope that we can achieve that for you. If you wouldn’t mind, I’d love it if you answered one quick question: why did you sign up for Samu? I’m asking because knowing what made you sign up is really helpful for us in making sure that we’re delivering on what our users want. Just hit “reply” and let me know.");
+                        };
+
+                        function upgrade() {
+                            manualemail();
+                            $('#formmessage').val("It looks like you’ll need to upgrade your account. Don’t worry, nothing has changed on your account, but we would like to introduce you to new features that are only availble to paying customers. If you have any questions about billing, please reply to this email directly.");
+                        };
+
+                        function update() {
+                            manualemail();
+                            $('#formmessage').val("As a friendly reminder, your account will be renewed later this week. If you wish to keep your account with us no action is required. My entire team is dedicated to ensuring your Squarespace experience is first rate. If you have any questions, comments, or suggestions, please let me know. Simply reply to this email and I'll make sure you receive a prompt response. Thank you again for your business.");
+                        };
+
+                        function sendemail() {
+                            console.log("sendemail was called");
+                            var toemail = $(".toemail").val();
+                            var fromemail = $(".fromemail").val();
+                            var subject = $(".subject").val();
+                            var html = $(".html").val();
+                            var name = $(".toname").val();
+                            var toemail = localStorage.getItem('toemail');
+                            var fromemail = localStorage.getItem('fromemail');
+                            var subject = localStorage.getItem('subject');
+                            var html = localStorage.getItem('html');
+                            var toname = localStorage.getItem('toname');
+
+
+                            $.ajax({
+                                type: "POST",
+                                url: "https://mandrillapp.com/api/1.0/messages/send.json",
+                                data: {
+                                    'key': 'A80YiLJGREfaXcSTXV2mcA',
+                                    'message': {
+                                        'from_email': fromemail,
+                                        'to': [{
+                                            'email': toemail,
+                                            'name': toname,
+                                            'type': 'to'
+                                        }],
+                                        'subject': subject,
+                                        'html': html
+
+                                    }
+                                }
+                            });
+                        };
+
+                        function newproject() {
+                            $("#tiles").html("");
+                            var ref = new Firebase("https://01234567890.firebaseio.com/organisations/Launch%20Services/");
+                            ref.once("value", function(snapshot) {
+                                snapshot.forEach(function(childSnapshot) {
+                                    var childData = childSnapshot.val();
+                                    var key = childData.key;
+                                    var value = childData.value;
+                                    var url = childData.url;
+                                    $("#tiles").append("<article id='" + key + "' class='" + url + "' onClick='preview(this.className);' class='style1'> <span class='image'> <img src='https://source.unsplash.com/random'> </span> <a ' href='javscript:; '> <h2>" + key + "</h2> <div class='content '> <p>" + value + "</p> </div> </a> </article>");
+                                });
+                            });
+                        };
+
+                        function adddata() {
+                            console.log("adddata was called");
+                            var key = $(".key").val();
+                            var value = $(".value").val();
+                            localStorage.setItem('key', key);
+                            localStorage.setItem('value', value);
+                            var key = localStorage.getItem('key');
+                            var value = localStorage.getItem('value');
+                            var base = $(".base :selected").text();
+                            console.log(base);
+                            var firebaseRef = new Firebase("https://01234567890.firebaseio.com/" + base);
+                            var postRef = firebaseRef.push();
+                            postRef.set({
+                                key: key,
+                                value: value,
+                            });
+                        };
+
+                        function getpro() {
+                            console.log("getpro was called");
+
+                            var handler = StripeCheckout.configure({
+                                key: 'pk_live_mdufsEUxVMK742qsZEJz4keg',
+                                image: 'https://fastur.ca/images/assist.png',
+                                locale: 'auto',
+                                token: function(token) {
+                                    // You can access the token ID with `token.id`.
+                                    // Get the token ID to your server-side code for use.
+                                }
+                            });
+                            // Open Checkout with further options:
+                            handler.open({
+                                name: 'Fastur.ca',
+                                description: 'Pro Plan',
+                                amount: 5000
+                            });
+                            e.preventDefault();
+
+                            // Close Checkout on page navigation:
+                            $(window).on('popstate', function() {
+                                handler.close();
+                            });
+                            console.log("get pro was called");
+                        };
+
+                        function dashboard() {
+                            cleartiles();
+                            isloggedin();
+                            $("#main").css("display", "block");
+                            $(".forms").css("display", "none");
+                            $("#footer").css("display", "none");
+                            $("#iframeone").css("display", "none");
+                        };
+
+                        function addprojecttoaccount() {
+                            var name = localStorage.getItem('name');
+                            console.log("addprojecttoaccount was called");
+                            var templateurl = localStorage.getItem('templateurl');
+                            var firebaseRef = new Firebase("https://01234567890.firebaseio.com/accounts/" + name + "/projects/");
+                            var postRef = firebaseRef.push();
+                            postRef.set({
+                                style: templateurl,
+                            });
+                        };
+
+                        function cleartiles() {
+                            $("#tiles").html("");
+                        };
+
+                        function saveedits() {
+                            console.log('save edits was called');
+                            //get the editable element
+                            var editElem = document.getElementsByClassName("edit");
+
+                            //get the edited element content
+                            var userVersion = editElem.innerText;
+                            console.log(userVersion);
+                            //save the content to local storage
+                            localStorage.userEdits = userVersion;
+
+                            //write a confirmation to the user
+                            console.log("Edits saved!");
+                        };
+
+
+                        connect();
+                        (function(i, s, o, g, r, a, m) {
+                            i['GoogleAnalyticsObject'] = r;
+                            i[r] = i[r] || function() {
+                                (i[r].q = i[r].q || []).push(arguments)
+                            }, i[r].l = 1 * new Date();
+                            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+                            a.async = 1;
+                            a.src = g;
+                            m.parentNode.insertBefore(a, m)
+                        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                        ga('create', 'UA-75304280-1', 'auto');
+                        ga('send', 'pageview');
+                    </script>
+
+
+</body>
+
+</html>
